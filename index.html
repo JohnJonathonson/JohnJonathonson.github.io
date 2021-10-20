@@ -303,13 +303,13 @@
       x = e.clientX - rect.left;
       y = e.clientY - rect.top;
 
-        if (Math.sqrt(Math.pow((x - lastpositionx),2) + Math.pow((y - lastpositiony),2) > 500)) {
+        if (Math.sqrt(Math.pow((x - lastpositionx),2) + Math.pow((y - lastpositiony),2) > 5)) {
 
           console.log("clicky clicky!");
 
 
           const dot = document.createElement("div");
-          dot.innerHTML = "<img src = https://i.imgur.com/FcYhnsk.png width = '10px' height = '10px'>";
+          dot.innerHTML = "<img src = https://i.imgur.com/FcYhnsk.png width = '7px' height = '7px'>";
           dot.id = "line"
           dot.style.top = y+5;
           dot.style.left = x+2;
