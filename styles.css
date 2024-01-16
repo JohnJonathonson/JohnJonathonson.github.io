@@ -1,0 +1,102 @@
+.badge {}
+
+#marker-red1 {
+  position: absolute;
+  width: 50px;
+  top: 0px;
+  left: 0px;
+}
+
+#marker-red2 {
+  position: absolute;
+  width: 50px;
+  top: 60px;
+  left: 0px;
+}
+
+#marker-red3 {
+  position: absolute;
+  width: 50px;
+  top: 120px;
+  left: 0px;
+}
+
+#marker-red4 {
+  position: absolute;
+  width: 50px;
+  top: 30px;
+  left: 60px;
+}
+
+#marker-red5 {
+  position: absolute;
+  width: 50px;
+  top: 90px;
+  left: 60px;
+}
+
+#marker-blue1 {
+  position: absolute;
+  width: 50px;
+  top: 30px;
+  left: 0px;
+}
+
+#marker-blue2 {
+  position: absolute;
+  width: 50px;
+  top: 90px;
+  left: 0px;
+}
+
+#marker-blue3 {
+  position: absolute;
+  width: 50px;
+  top: 0px;
+  left: 60px;
+}
+
+#marker-blue4 {
+  position: absolute;
+  width: 50px;
+  top: 60px;
+  left: 60px;
+}
+
+#marker-blue5 {
+  position: absolute;
+  width: 50px;
+  top: 120px;
+  left: 60px;
+}
+
+#map {
+
+  position: absolute;
+
+}
+
+#markersblue {
+  position: absolute;
+  top: 725px;
+  left: 2000px;
+
+}
+
+#markersred {
+  position: absolute;
+  top: 725px;
+  left: 475px;
+
+}
+
+
+
+.selection {
+  background-color: white;
+  padding: 5px;
+
+  font-size: 30px;
+  position: fixed;
+
+}
