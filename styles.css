@@ -87,16 +87,26 @@
   position: absolute;
   top: 725px;
   left: 475px;
-
 }
 
 
 
 .selection {
-  background-color: white;
-  padding: 5px;
-
   font-size: 30px;
   position: fixed;
 
+}
+
+.testing {
+  cursor: grab;
+}
+
+.button {
+  display: inline-block;
+  box-shadow: 1px 1px 1px 1px black;
+  padding: 10px;
+  margin-inline: 5px;
+  cursor: pointer;
+  background: linear-gradient(310deg, rgba(233,233,233,1) 0%, rgba(254,254,254,1) 100%);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }

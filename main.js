@@ -13,8 +13,26 @@ const newalden_div = document.getElementById("newalden");
 const moshpit_div = document.getElementById("moshpit");
 const contra_div = document.getElementById("contra");
 const steedie_div = document.getElementById("steedie");
+const clear_div = document.getElementById("clear");
+const reset_div = document.getElementById("reset");
 var img = document.getElementById('map_id');
 
+const markersArray = [document.getElementById("marker-red1"),
+document.getElementById("marker-red2"),
+document.getElementById("marker-red3"),
+document.getElementById("marker-red4"),
+document.getElementById("marker-red5"),
+document.getElementById("marker-blue1"),
+document.getElementById("marker-blue2"),
+document.getElementById("marker-blue3"),
+document.getElementById("marker-blue4"),
+document.getElementById("marker-blue5")];
+
+var markerPos = new Array(20);
+for (var i = 0; i < 10; i++) {
+  markerPos[2 * i] = markersArray[i].style.top;
+  markerPos[2 * i + 1] = markersArray[i].style.left;
+}
 
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -67,7 +85,7 @@ placeArrow();
 
 function placeArrow() {
 
-  img.onmousedown= moveArrow;
+  img.onmousedown = moveArrow;
 
 }
 var e;
@@ -88,7 +106,7 @@ function moveArrow() {
 }
 
 function drawArrow() {
-        console.log("Left? : " + x + " ; Top? : " + y + ".  " + lastpositionx + "  " + lastpositiony);
+  console.log("Left? : " + x + " ; Top? : " + y + ".  " + lastpositionx + "  " + lastpositiony);
 
   e = window.event;
   e.preventDefault();
@@ -96,22 +114,22 @@ function drawArrow() {
   x = e.clientX - rect.left;
   y = e.clientY - rect.top;
 
-    if (Math.sqrt(Math.pow((x - lastpositionx),2) + Math.pow((y - lastpositiony),2) > 500)) {
+  if (Math.sqrt(Math.pow((x - lastpositionx), 2) + Math.pow((y - lastpositiony), 2) > 200)) {
 
-      console.log("clicky clicky!");
+    console.log("clicky clicky!");
 
 
-      const dot = document.createElement("div");
-      dot.innerHTML = "<img src = dot.png width = '10px' height = '10px'>";
-      dot.id = "line"
-      dot.style.top = y+5;
-      dot.style.left = x+2;
-      dot.style.position = "absolute";
-      document.getElementById("lines").appendChild(dot);
-      lastpositionx = x;
-      lastpositiony = y;
+    const dot = document.createElement("div");
+    dot.innerHTML = "<img src = dot.png width = '10px' height = '10px'>";
+    dot.id = "line"
+    dot.style.top = y + 5;
+    dot.style.left = x + 2;
+    dot.style.position = "absolute";
+    document.getElementById("lines").appendChild(dot);
+    lastpositionx = x;
+    lastpositiony = y;
 
-    }
+  }
 
 
 
@@ -122,24 +140,24 @@ selectMap();
 
 function selectMap() {
 
-  garrison_div.addEventListener('click', function() {changeMap("garrison.jpg")})
-  newalden_div.addEventListener('click', function() {changeMap("newalden.jpg")})
-  moshpit_div.addEventListener('click', function() {changeMap("moshpit.jpg")})
-  contra_div.addEventListener('click', function() {changeMap("contra.jpg")})
-  steedie_div.addEventListener('click', function() {changeMap("steedie_moshpit.jpg")})
-
-
+  garrison_div.addEventListener('click', function () { changeMap("garrison.jpg") })
+  newalden_div.addEventListener('click', function () { changeMap("newalden.jpg") })
+  moshpit_div.addEventListener('click', function () { changeMap("moshpit.jpg") })
+  contra_div.addEventListener('click', function () { changeMap("contra.jpg") })
+  steedie_div.addEventListener('click', function () { changeMap("steedie_moshpit.jpg") })
+  clear_div.addEventListener('click', function () { eraseClick() })
+  reset_div.addEventListener('click', function () { resetPositions(); eraseClick() })
 }
 
 function changeMap(map) {
 
   img.innerHTML = "<img src='" + map + "'>";
-
+  eraseClick();
   console.log("map change " + map);
-
+  resetPositions();
 }
 
-document.addEventListener("keydown", function(){erase()})
+document.addEventListener("keydown", function () { erase() })
 
 function erase() {
 
@@ -150,12 +168,34 @@ function erase() {
 
     while (line != null) {
 
+      line = document.getElementById("line");
+
+      if (line !== null) {
+        line.remove();
+      }
+    }
+  }
+
+}
+
+function eraseClick() {
+
+  var line = document.getElementById("line");
+
+  while (line != null) {
+
     line = document.getElementById("line");
 
     if (line !== null) {
-    line.remove();
+      line.remove();
+    }
   }
 }
-  }
 
+function resetPositions() {
+
+  for (var i = 0; i < 10; i++) {
+    markersArray[i].style.top = markerPos[2 * i];
+    markersArray[i].style.left = markerPos[2 * i + 1];
+  }
 }
